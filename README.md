@@ -21,4 +21,4 @@ Database backup
 
 ## Usage
 
-`python3 backup.py tariff_eu`
+`python3 backup.py <dbname>`
