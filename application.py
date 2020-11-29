@@ -6,25 +6,17 @@ from datetime import datetime
 from datetime import timedelta
 from sh import pg_dump
 import time
+from dotenv import load_dotenv
 
 
 class application(object):
     def __init__(self):
         self.clear()
-        self.p = "zanzibar"
 
         self.get_config()
         self.BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        self.connect()
 
     def get_config(self):
-        self.BACKUP_DIR = os.getenv('BACKUP_DIR')
-        if not os.path.isdir(self.BACKUP_DIR):
-            os.mkdir(self.BACKUP_DIR)
-        self.BACKUP_DIR = os.path.join(self.BACKUP_DIR, self.database_name)
-        if not os.path.isdir(self.BACKUP_DIR):
-            os.mkdir(self.BACKUP_DIR)
-
         self.database_name = "tariff_dev"
         # Get name of database to backup
         err_msg = '\nPlease enter a genuine database name - aborting\n\nUse one of the following - "tariff_dev", "tariff_build", "tariff_eu", "t_eu", "tariff_staging", "tariff_cds", "tariff_load", "tariff_steve", "tariff_tap", "smart_signposting"'
@@ -45,6 +37,15 @@ class application(object):
                 sys.exit()
         except:
             self.schema = ""
+
+        load_dotenv(".env")
+        self.BACKUP_DIR = os.getenv('BACKUP_DIR')
+        if not os.path.isdir(self.BACKUP_DIR):
+            os.mkdir(self.BACKUP_DIR)
+        self.BACKUP_DIR = os.path.join(self.BACKUP_DIR, self.database_name)
+        if not os.path.isdir(self.BACKUP_DIR):
+            os.mkdir(self.BACKUP_DIR)
+
 
     def db_backup(self):
         start = time.time()
@@ -112,6 +113,3 @@ class application(object):
         else:
             _ = system("printf '\33c\e[3J'")
 
-    def connect(self):
-        self.conn = psycopg2.connect(
-            "dbname=" + self.database_name + " user=postgres password=" + self.p)
