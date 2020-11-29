@@ -9,19 +9,16 @@ Database backup
 
 - Install necessary Python modules 
 
-  - et-xmlfile==1.0.1
-  - jdcal==1.4.1
-  - numpy==1.19.4
-  - openpyxl==3.0.5
-  - pandas==1.1.4
-  - python-dateutil==2.8.1
-  - pytz==2020.4
-  - six==1.15.0
-  - xlrd==1.2.0
+  - autopep8==1.5.4
+  - psycopg2==2.8.6
+  - pycodestyle==2.6.0
+  - python-dotenv==0.15.0
+  - sh==1.14.1
+  - toml==0.10.2
 
   via `pip3 install -r requirements.txt`
 
 
 ## Usage
 
-TBC
+`python3 backup.py tariff_eu`
