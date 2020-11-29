@@ -1,7 +1,7 @@
 import sys
 import os
 from os import system, name
-import psycopg2
+# import psycopg2
 from datetime import datetime
 from datetime import timedelta
 from sh import pg_dump
@@ -25,7 +25,8 @@ class application(object):
         except:
             print(err_msg)
             sys.exit()
-        if self.database_name not in ("tariff_build", "tariff_dev", "t_eu", "tariff_eu", "tariff_staging", "tariff_national", "tariff_load", "tariff_cds", "tariff_steve", "tariff_tap", "smart_signposting"):
+        if self.database_name == "":
+        # if self.database_name not in ("tariff_build", "tariff_dev", "t_eu", "tariff_eu", "tariff_staging", "tariff_national", "tariff_load", "tariff_cds", "tariff_steve", "tariff_tap", "smart_signposting"):
             print(err_msg)
             sys.exit()
         # Optionally, you may choose to just back up a singel schema - this can be specified in the second parameter
