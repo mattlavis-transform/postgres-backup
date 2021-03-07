@@ -19,7 +19,7 @@ class application(object):
     def get_config(self):
         self.database_name = "tariff_dev"
         # Get name of database to backup
-        err_msg = '\nPlease enter a genuine database name - aborting\n\nUse one of the following - "tariff_dev", "tariff_build", "tariff_eu", "t_eu", "tariff_staging", "tariff_cds", "tariff_load", "tariff_steve", "tariff_tap", "smart_signposting"'
+        err_msg = '\nPlease enter a genuine database name - aborting\n\nUse one of the following - "tariff_dev", "tariff_uk_production2", "tariff_xi_production2", "t_eu", "tariff_staging", "tariff_cds", "tariff_load", "tariff_steve", "tariff_tap", "smart_signposting"'
         try:
             self.database_name = sys.argv[1]
         except:

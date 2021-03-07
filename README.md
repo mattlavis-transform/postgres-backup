@@ -22,3 +22,7 @@ Database backup
 ## Usage
 
 `python3 backup.py <dbname>`
+
+e.g.
+
+`python3 backup.py tariff_uk_production`
